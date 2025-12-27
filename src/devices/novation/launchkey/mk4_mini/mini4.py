@@ -21,7 +21,7 @@ from control_surfaces import (
     StandardPitchWheel,
     SustainPedal,
 )
-from control_surfaces.event_patterns import BasicPattern, UnionPattern
+from control_surfaces.event_patterns import BasicPattern
 from control_surfaces.matchers import BasicControlMatcher, NoteMatcher
 from devices.device import Device
 from devices.novation.launchkey.incontrol import (
@@ -29,7 +29,7 @@ from devices.novation.launchkey.incontrol import (
     InControlMatcher,
 )
 from devices.novation.launchkey.incontrol.controls import (
-    Lk4KnobSet,
+    LkEncoderSet,
 )
 
 from .shift import getShiftControls
@@ -51,7 +51,7 @@ class LaunchkeyMiniMk4(Device):
         # Notes
         matcher.addSubMatcher(NoteMatcher())
 
-        matcher.addSubMatcher(Lk4KnobSet())
+        matcher.addSubMatcher(LkEncoderSet())
         # matcher.addControl(LkMk3PlayButton())
         matcher.addControl(StandardPitchWheel.create())
         matcher.addControl(StandardModWheel.create())
