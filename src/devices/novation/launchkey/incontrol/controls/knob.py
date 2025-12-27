@@ -21,10 +21,13 @@ from control_surfaces.value_strategies import (
 __all__ = [
     'LkKnob',
     'LkKnobSet',
+    'Lk4Knob',
+    'Lk4KnobSet',
 ]
 
 # Fader start
 K_START = 0x15
+K4_START = 0x15
 
 
 class LkKnob(Knob):
@@ -40,4 +43,19 @@ class LkKnobSet(IndexedMatcher):
     def __init__(self) -> None:
         super().__init__(0xBF, K_START, [
             LkKnob(i) for i in range(8)
+        ], 2)
+        
+class Lk4Knob(Knob):
+    def __init__(self, index: int) -> None:
+        super().__init__(
+            ForwardedPattern(2, BasicPattern(0xBF, K4_START + index, ...)),
+            ForwardedStrategy(Data2Strategy()),
+            (0, index)
+        )
+
+
+class Lk4KnobSet(IndexedMatcher):
+    def __init__(self) -> None:
+        super().__init__(0xBF, K4_START, [
+            Lk4Knob(i) for i in range(8)
         ], 2)

@@ -40,6 +40,8 @@ __all__ = [
     'LkMk3FaderSet',
     'LkKnob',
     'LkKnobSet',
+    'Lk4Knob',
+    'Lk4KnobSet',
     'LkMk2MetronomeButton',
     'LkMk3MetronomeButton',
     'LkMk2ControlSwitchButton',
@@ -93,6 +95,8 @@ from .incontrol_surface import ColorInControlSurface, GrayscaleInControlSurface
 from .knob import (
     LkKnob,
     LkKnobSet,
+    Lk4Knob,
+    Lk4KnobSet,
 )
 from .metronome import (
     LkMk2MetronomeButton,
