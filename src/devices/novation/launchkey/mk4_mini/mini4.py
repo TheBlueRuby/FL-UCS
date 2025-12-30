@@ -29,7 +29,7 @@ from devices.novation.launchkey.incontrol import (
     InControlMatcher,
 )
 from devices.novation.launchkey.incontrol.controls import (
-    LkEncoderSet,
+    LkKnobSet,
 )
 
 from .shift import getShiftControls
@@ -51,7 +51,7 @@ class LaunchkeyMiniMk4(Device):
         # Notes
         matcher.addSubMatcher(NoteMatcher())
 
-        matcher.addSubMatcher(LkEncoderSet())
+        matcher.addSubMatcher(LkKnobSet())
         # matcher.addControl(LkMk3PlayButton())
         matcher.addControl(StandardPitchWheel.create())
         matcher.addControl(StandardModWheel.create())

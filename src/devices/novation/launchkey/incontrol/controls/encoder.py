@@ -1,7 +1,7 @@
 """
-devices > novation > launchkey > incontrol > controls > knob
+devices > novation > launchkey > incontrol > controls > encoder
 
-Definitions for knob controls shared between Launchkey devices
+Definitions for encoder controls shared between Launchkey Mk4 devices
 
 Authors:
 * Maddy Guthridge [hello@maddyguthridge.com, HDSQ#2154]
@@ -14,7 +14,7 @@ from control_surfaces import Encoder
 from control_surfaces.event_patterns import BasicPattern, ForwardedPattern
 from control_surfaces.matchers import IndexedMatcher
 from control_surfaces.value_strategies import (
-    TwosComplimentDeltaStrategy,
+    Data2Strategy,
     ForwardedStrategy,
 )
 
@@ -31,7 +31,7 @@ class LkEncoder(Encoder):
     def __init__(self, index: int) -> None:
         super().__init__(
             ForwardedPattern(2, BasicPattern(0xBF, E_START + index, ...)),
-            ForwardedStrategy(TwosComplimentDeltaStrategy(scaling=0.3)),
+            ForwardedStrategy(Data2Strategy()),
             (0, index)
         )
 
