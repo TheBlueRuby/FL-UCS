@@ -168,11 +168,26 @@ class ManualMapper(CoreIntegration):
         # Find the associated event ID
         event_id = cls.calcEventId(channel, cc)
         # If that event ID isn't invalid
-        if event_id is not None:
+        if (event_id is not None) and (event_id != -1):
             control.connected = True
-            control.annotation = device.getLinkedParamName(event_id)
+            
+            try:
+                control.annotation = device.getLinkedParamName(event_id)
+            except RuntimeError as e:
+                if "Plugin not valid" in f"{e}":
+                    control.annotation = "Unmapped"
+                else:
+                    raise
+                
             control.color = Color.ENABLED
-            control.value = device.getLinkedValue(event_id)
+            newVal = device.getLinkedValue(event_id)
+            if newVal == -1:
+                control.value = 0
+                print(f"No linked control! Event ID: {event_id}, Invalid ID: {midi.REC_InvalidID}")
+            else:
+                control.value = newVal
+                print(f"New Falue for {event_id}: {newVal}")
+                
         else:
             control.connected = False
 

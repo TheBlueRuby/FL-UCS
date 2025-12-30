@@ -82,6 +82,10 @@ class PluginIndex(FlIndex):
             )
         except TypeError:
             return 'Invalid plugin'
+        except RuntimeError as e:
+            if "Plugin not valid" in f"{e}":
+                return 'No Plugin'
+            raise
 
     def presetNext(self) -> None:
         """
