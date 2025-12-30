@@ -143,4 +143,9 @@ from .transport import (
     LkQuantizeButton,
     LkRewindButton,
     LkUndoRedoButton,
+    LkMk4CaptureMidiButton,
+    LkMk4LoopButton,
+    LkMk4PlayButton,
+    LkMk4RecordButton,
+    LkMk4StopButton,
 )

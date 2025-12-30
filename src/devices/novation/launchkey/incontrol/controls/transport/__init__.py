@@ -23,6 +23,11 @@ __all__ = [
     'LkMk3PlayButton',
     'LkMk2RecordButton',
     'LkMk3RecordButton',
+    'LkMk4CaptureMidiButton',
+    'LkMk4LoopButton',
+    'LkMk4PlayButton',
+    'LkMk4RecordButton',
+    'LkMk4StopButton',
 ]
 
 from .common import (
@@ -43,4 +48,11 @@ from .mk3 import (
     LkMk3PlayButton,
     LkMk3RecordButton,
     LkMk3StopButton,
+)
+from .mk4 import (
+    LkMk4CaptureMidiButton,
+    LkMk4LoopButton,
+    LkMk4PlayButton,
+    LkMk4RecordButton,
+    LkMk4StopButton,
 )
