@@ -118,6 +118,16 @@ from .navigation import (
     Mk3DirectionRight,
     Mk3DirectionUp,
     Mk3DirectionUpSilenced,
+    MiniMk4DirectionDown,
+    MiniMk4DirectionUp,
+    MiniMk4DirectionLeft,
+    MiniMk4DirectionRight,
+    Mk4DirectionDown,
+    Mk4DirectionDownSilenced,
+    Mk4DirectionLeft,
+    Mk4DirectionRight,
+    Mk4DirectionUp,
+    Mk4DirectionUpSilenced,
 )
 from .transport import (
     LkFastForwardButton,
