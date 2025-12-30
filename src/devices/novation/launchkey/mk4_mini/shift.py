@@ -52,6 +52,10 @@ def getShiftControls() -> ShiftMatcher:
     main_view.addControl(LkMk4RecordButton())
     main_view.addControl(LkMk3ControlSwitchButton())
     main_view.addSubMatcher(LkDrumPadMatcher(LkMk3DrumPad))
+    main_view.addControls([
+        MiniMk4DirectionUp(),
+        MiniMk4DirectionDown(),
+    ])
 
     # Shifted events
     shift_view = BasicControlMatcher()
@@ -60,8 +64,6 @@ def getShiftControls() -> ShiftMatcher:
         ForwardedStrategy(ButtonData2Strategy()),
     ))
     shift_view.addControls([
-        MiniMk4DirectionUp(),
-        MiniMk4DirectionDown(),
         MiniMk4DirectionLeft(),
         MiniMk4DirectionRight(),
     ])
