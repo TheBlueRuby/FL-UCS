@@ -15,6 +15,7 @@ from control_surfaces.event_patterns import BasicPattern, ForwardedPattern
 from control_surfaces.matchers import IndexedMatcher
 from control_surfaces.value_strategies import (
     Lk4RelativeStrategy,
+    Data2Strategy,
     ForwardedStrategy,
 )
 
@@ -24,20 +25,24 @@ __all__ = [
 ]
 
 # Fader start
-E_START = 0x15
+E_ABS_START = 0x15
+E_REL_START = 0x55
 
         
 class LkEncoder(Encoder):
     def __init__(self, index: int) -> None:
         super().__init__(
-            ForwardedPattern(2, BasicPattern(0xBF, E_START + index, ...)),
-            ForwardedStrategy(Lk4RelativeStrategy()),
+            ForwardedPattern(2, BasicPattern(0xBF, E_ABS_START + index, ...)),
+            ForwardedStrategy(Data2Strategy()),
+            # ForwardedPattern(2, BasicPattern(0xBF, E_REL_START + index, ...)),
+            # ForwardedStrategy(Lk4RelativeStrategy()),
             (0, index)
         )
 
 
 class LkEncoderSet(IndexedMatcher):
     def __init__(self) -> None:
-        super().__init__(0xBF, E_START, [
+        super().__init__(0xBF, E_ABS_START, [
+        # super().__init__(0xBF, E_REL_START, [
             LkEncoder(i) for i in range(8)
         ], 2)
