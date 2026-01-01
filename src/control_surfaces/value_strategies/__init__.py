@@ -23,6 +23,7 @@ __all__ = [
     'ForwardedUnionStrategy',
     'NullStrategy',
     'AkaiJoystickFullStrategy',
+    'Lk4RelativeStrategy',
 ]
 
 from .akai_joystick_full_strategy import AkaiJoystickFullStrategy
@@ -34,3 +35,4 @@ from .note_strategy import NoteStrategy
 from .null_strategy import NullStrategy
 from .twos_compliment_delta import TwosComplimentDeltaStrategy
 from .value_strategy import IValueStrategy
+from .lk4_relative_strategy import Lk4RelativeStrategy

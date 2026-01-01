@@ -14,7 +14,7 @@ from control_surfaces import Encoder
 from control_surfaces.event_patterns import BasicPattern, ForwardedPattern
 from control_surfaces.matchers import IndexedMatcher
 from control_surfaces.value_strategies import (
-    Data2Strategy,
+    Lk4RelativeStrategy,
     ForwardedStrategy,
 )
 
@@ -31,7 +31,7 @@ class LkEncoder(Encoder):
     def __init__(self, index: int) -> None:
         super().__init__(
             ForwardedPattern(2, BasicPattern(0xBF, E_START + index, ...)),
-            ForwardedStrategy(Data2Strategy()),
+            ForwardedStrategy(Lk4RelativeStrategy()),
             (0, index)
         )
 
