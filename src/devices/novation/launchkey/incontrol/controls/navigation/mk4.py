@@ -53,20 +53,9 @@ class MiniMk4DirectionDown(DirectionDown):
             )
         )
 
+# Left and right are labeled backwards in the manual
+
 class MiniMk4DirectionLeft(DirectionLeft):
-    def __init__(self) -> None:
-        super().__init__(
-            ForwardedPattern(2, BasicPattern(0xB0, 0x67, ...)),
-            ForwardedStrategy(ButtonData2Strategy()),
-            color_manager=GrayscaleInControlSurface(
-                0xF,
-                0x67,
-                GRAYSCALE,
-            )
-        )
-
-
-class MiniMk4DirectionRight(DirectionRight):
     def __init__(self) -> None:
         super().__init__(
             ForwardedPattern(2, BasicPattern(0xB0, 0x66, ...)),
@@ -78,10 +67,11 @@ class MiniMk4DirectionRight(DirectionRight):
             )
         )
 
-class Mk4DirectionLeft(DirectionLeft):
+
+class MiniMk4DirectionRight(DirectionRight):
     def __init__(self) -> None:
         super().__init__(
-            ForwardedPattern(2, BasicPattern(0xBF, 0x67, ...)),
+            ForwardedPattern(2, BasicPattern(0xB0, 0x67, ...)),
             ForwardedStrategy(ButtonData2Strategy()),
             color_manager=GrayscaleInControlSurface(
                 0xF,
@@ -90,8 +80,7 @@ class Mk4DirectionLeft(DirectionLeft):
             )
         )
 
-
-class Mk4DirectionRight(DirectionRight):
+class Mk4DirectionLeft(DirectionLeft):
     def __init__(self) -> None:
         super().__init__(
             ForwardedPattern(2, BasicPattern(0xBF, 0x66, ...)),
@@ -99,6 +88,19 @@ class Mk4DirectionRight(DirectionRight):
             color_manager=GrayscaleInControlSurface(
                 0xF,
                 0x66,
+                GRAYSCALE,
+            )
+        )
+
+
+class Mk4DirectionRight(DirectionRight):
+    def __init__(self) -> None:
+        super().__init__(
+            ForwardedPattern(2, BasicPattern(0xBF, 0x67, ...)),
+            ForwardedStrategy(ButtonData2Strategy()),
+            color_manager=GrayscaleInControlSurface(
+                0xF,
+                0x67,
                 GRAYSCALE,
             )
         )
